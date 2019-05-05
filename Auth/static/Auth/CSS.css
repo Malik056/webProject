@@ -1,0 +1,51 @@
+.container-small
+{
+    padding: 2%;   
+}
+
+.bg-dark label
+{
+    color: white;
+}
+
+body
+{
+    height:100%;
+    padding-top:110px;
+}
+
+.card-header p,img 
+{
+    display:inline-block;
+}
+.card-header img
+{
+    max-width: 15%;
+    height: auto;
+}
+/* 
+.navbar-brand img
+{
+    max-width: 25%;
+    height: auto;
+} */
+
+.card-body img
+{
+    max-width: 100%;
+    height:auto;
+}
+
+.profile-name
+{
+    font-weight: bold;
+    color: white;
+    
+}
+
+#timeStamp
+{
+    color: gray;
+}
+
+

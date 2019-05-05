@@ -1,0 +1,79 @@
+{% extends 'Auth/base.html' %}
+{%block title %}
+    <title>Newsfeed</title>
+{% endblock %}
+
+{% block imports %}
+{% load staticfiles %}
+<script src="{% static 'Auth/Feed.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'Auth/CSS.css' %}"/>
+{% endblock %}
+
+
+{% block body %}
+
+        <div id="feedContainer" class="container-fluid h-100" onscroll="scrolled()">
+            <div class="row">
+                <!--Left Pane-->
+                <div class="d-none  d-sm-block col-sm-3 col-lg-4">
+                </div>
+
+                <!--Middle Pane-->
+                <div class="col-xs-12 col-sm-6 col-lg-4" id="newsFeed">
+
+                    <!-- Card -->
+                    <div id="feed" class="card bg-dark text-white shadow-lg mb-3" style="margin-bottom:10px;">
+
+                        <!-- Header -->
+                        <div class="card-header">
+                            <!--Profile Image-->
+                            <img src="{% static 'Auth/images/img_avatar1.png'%}" alt="ProfileImage" class="rounded-circle">
+                            <p >
+                                <a class="profile-name " href="#">H M Kashif Ali</a> shared a picture
+                                <br>
+                                <span id="timeStamp">March 13, 2019 20:15:52</span>
+                            </p>
+
+                        </div>
+
+                        <!-- Body -->
+                        <div class="card-body">
+                            <p>This is the image I captured lastnight</p>
+                            <img src="{% static 'Auth/images/img_avatar1.png'%}" class="img-fluid" alt="Brand Logo">
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="card-footer ">
+                            <div class="btn-group w-100">
+
+                                <button type="button" class="btn btn-light">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-light">
+                                        <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-light">
+                                    <i class="fa fa-paper-plane-o " aria-hidden="true"></i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Card End -->
+
+
+                </div>
+
+                <!--Right Pane-->
+                <div class="d-none d-sm-block col-sm-3 col-lg-4">
+                </div>
+
+            </div>
+        </div>
+
+
+
+{% endblock %}

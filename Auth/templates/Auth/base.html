@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block title %}
+        <title>Title</title>
+    {% endblock %}
+    {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/d0a847f6a8.js"></script>
+        {% block imports %}
+
+        {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <!--Website name-->
+            <!-- <img class="navbar-brand" src="./Images/250px-National_University_of_Computer_and_Emerging_Sciences_logo.png"  alt="Brand Logo"> -->
+
+            <a class="navbar-brand" href="#"  style="width:fit-content">
+                    <img src="{% static 'Auth/images/Footer-Logo.png' %}" alt="Brand Logo" style="widows: 50px;height:50px;">
+                    <!-- <span class="font-weight-bold">Circle</span> -->
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <!--Links-->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'Auth:signup'%}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-users" aria-hidden="true"></i> Friends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-briefcase" aria-hidden="true"></i> Jobs</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item "><a class="btn btn-primary" href="./Index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> LogOut</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    {% block body%}
+    {% endblock %}
+
+</body>
+</html>

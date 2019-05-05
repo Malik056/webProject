@@ -1,0 +1,11 @@
+django-admin startproject <project name> ##....creates a project
+
+python manage.py runserver ##....starts the server
+
+python manage.py startapp <app name> ##....creates an app
+
+python manage.py migrate ##....migrates the changes
+
+python manage.py makemigrations <app name> ##....makemigrations
+
+python manage.py createsuperuser ##....create admin

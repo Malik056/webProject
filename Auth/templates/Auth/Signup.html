@@ -1,0 +1,153 @@
+{% extends 'Auth/base.html' %}
+
+{% block title %}
+<title>Signup</title>
+{% endblock %}
+
+
+{% block imports %}
+{% load staticfiles %}
+<script src="{% static 'Auth/Index.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'Auth/CSS.css'%}"/>
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+    <div class="row align-items-center">
+        <div class="col-sm-3" class="bg-dark"></div>
+        <!-- Login Forms -->
+        <div class="card col-sm-6 bg-dark">
+            <div class="cardbody">
+                <br>
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#StuSignup">  <i class="fa fa-graduation-cap" aria-hidden="true"></i> Student</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#OrgSignup"><i class="fa fa-university" aria-hidden="true"></i> Organization</a></li>
+                </ul>
+                <div class="tab-content">
+                    <!-- Student Login Form -->
+                    <div class="tab-pane active" id="StuSignup">
+                        <form action="{% url 'Auth:signup'%}" method="post">
+                            {% csrf_token %}
+                            <br>
+                            {% if error %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{error}}
+                                </div>
+                            {%endif%}
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label class="card-text" for="name">Full Name:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="stuFirstName" placeholder="Firstname" name="Firstname">
+                                    <input type="text" class="form-control" id="stuSecondName" placeholder="Lastname" name="Lastname">
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label class="card-text" for="pwd">Email:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <input type="email" class="form-control" id="stuEmail" placeholder="Email" name="stuEmail">
+                                    <input type="email" class="form-control" id="stuConfirmEmail" placeholder="Confirm Email" name="stuConfirmEmail">
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label class="card-text" for="pwd">Password:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-lock" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password" class="form-control" id="stuPassword" placeholder="Password" name="stuPassword">
+                                    <input type="password" class="form-control" id="stuConfirmPassword" placeholder="Confirm password" name="stuConfirmPassword">
+                                </div>
+
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div class="form-group">
+                                    <label class="card-text" for="pwd">Contact:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <input type="tel" class="form-control" id="stuContact" placeholder="Contact Number" name="stuContact">
+                                    </div>
+
+                                </div>
+                            <!-- <div class="form-group form-check">
+                                <label class="card-text" class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                </label>
+                            </div> -->
+
+                            <button type="submit" class="btn btn-primary">Signup</button>
+                            <div class="form-group">
+                                <label class="card-text" for="pwd">Already have an account? <a href="{% url 'Auth:login' %}">Login</a></label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Organization Login Form -->
+                    <div class="tab-pane fade" id="OrgSignup">
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                    <label class="card-text" for="email">Email:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="card-text" for="pwd">Password:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa fa-lock" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                    </div>
+
+                                </div>
+                                <!-- <div class="form-group form-check">
+                                    <label class="card-text" class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                    </label>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="form-group">
+                                    <label class="card-text" for="pwd"><a href="./Signup.html">I don't have account</a></label>
+                                </div>
+                            </form>
+                        </div>
+                    </dvi>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+{% endblock %}
