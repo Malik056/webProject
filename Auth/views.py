@@ -73,10 +73,6 @@ class Signup(View):
         em = request.POST['stuEmail']
         pa = request.POST['stuPassword']
         cn = request.POST['stuContact']
-        from django.core.mail import send_mail
-
-        send_mail('Subject here', 'Here is the message.', 'from@example.com',
-                  ['tahamahmoodmalik@gmail.com'], fail_silently=False)
         try:
             userDetails = UserDetails.objects.get(email=em)
         except UserDetails.DoesNotExist:
