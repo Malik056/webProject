@@ -74,6 +74,42 @@
             </div>
         </div>
 
+        <script>
+            var xhr;
+
+            // instantiate
+            url =
+            if (window.XMLHttpRequest)     // Standard object
+            {
+                xhr = new XMLHttpRequest();     // Firefox, Safari, ...
+            }
+            else if (window.ActiveXObject)   // Internet Explorer
+            {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            // assign callback function
+            xhr.onreadystatechange = callback;
+
+            //open connection
+            xhr.open(“GET”,url,true);
+            xhr.send();
+
+            function callback() {
+
+                if(xhr.readyState  == 4) {
+
+                      if(xhr.status  == 200)
+
+                      else
+                         alert("Error code " + xhr.status);
+
+                 }
+            }
+
+
+
+        </script>
 
 
 {% endblock %}

@@ -16,5 +16,7 @@ urlpatterns = [
     path('api/createjob', views.CreateJobAPI.as_view()),
     path('api/readjobs', views.ReadJobsAPI.as_view()),
     path('api/updatejob/<int:pk>', views.UpdateJobAPI.as_view()),
-    path('api/deletejob/<int:pk>', views.DeleteJobAPI.as_view())
+    path('api/deletejob/<int:pk>', views.DeleteJobAPI.as_view()),
+    path('api/createpost/<int:pk>', views.CreatePostAPI.as_view(), name="createPosts"),
+    path('api/getallposts/<int:pk>', views.GetPostsAPI, name="getPosts")
 ]
