@@ -9,11 +9,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'Auth/CSS.css' %}"/>
 {% endblock %}
 
-
 {% block body %}
 
+        <label id="count_row" style="display:none">1</label>
         <div id="feedContainer" class="container-fluid h-100" onscroll="scrolled()">
-            <div class="row">
+            <div class="row" id="task_row_1">
                 <!--Left Pane-->
                 <div class="d-none  d-sm-block col-sm-3 col-lg-4">
                 </div>
@@ -75,38 +75,25 @@
         </div>
 
         <script>
-            var xhr;
 
-            // instantiate
-            url =
-            if (window.XMLHttpRequest)     // Standard object
-            {
-                xhr = new XMLHttpRequest();     // Firefox, Safari, ...
-            }
-            else if (window.ActiveXObject)   // Internet Explorer
-            {
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            }
 
-            // assign callback function
-            xhr.onreadystatechange = callback;
+            $.ajax({
+              type: 'GET',
+              url: "{% url auth:getPosts pk=1" %},
+              async: false,
+              beforeSend: function (xhr) {
+                if (xhr && xhr.overrideMimeType) {
+                  xhr.overrideMimeType('application/json;charset=utf-8');
+                }
+              },
+              success: function (data) {
+                //Do stuff with the JSON data
+                jobject = JSON.parse(data);
 
-            //open connection
-            xhr.open(“GET”,url,true);
-            xhr.send();
 
-            function callback() {
 
-                if(xhr.readyState  == 4) {
-
-                      if(xhr.status  == 200)
-
-                      else
-                         alert("Error code " + xhr.status);
-
-                 }
-            }
-
+              }
+            });
 
 
         </script>
